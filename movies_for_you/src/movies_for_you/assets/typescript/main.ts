@@ -31,7 +31,7 @@ function search(event: Event){
         release.textContent = movies[i][1];
         director.textContent = movies[i][2];
         length.textContent = movies[i][3];
-        genre.textContent = movies[i][4];
+        genre.textContent = movies[i][4].join();
         rating.textContent = movies[i][5];
         card.appendChild(title);
         movieContainer?.appendChild(card);
