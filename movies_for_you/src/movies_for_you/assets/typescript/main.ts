@@ -47,7 +47,6 @@ function search(event: Event){
         movieContainer?.appendChild(rating);
         }
     }
-    searchFieldInput.value = "";
 }
 
 function printMovies(array: any){
@@ -81,6 +80,7 @@ searchForm.addEventListener("submit", search);
 
 function sortUpAndPrint(event: Event){
     event.preventDefault();
+    movieContainer!.innerHTML = "";
     const sortedArrayDown = copiedArray.sort((a, b) => {
         const yearA = parseInt(a[1]);
         const yearB = parseInt(b[1]);
@@ -91,6 +91,7 @@ function sortUpAndPrint(event: Event){
 
 function sortDownAndPrint(event: Event){
     event.preventDefault();
+    movieContainer!.innerHTML = "";
     const sortedArrayDown = copiedArray.sort((a, b) => {
         const yearA = parseInt(a[1]);
         const yearB = parseInt(b[1]);
@@ -101,9 +102,10 @@ function sortDownAndPrint(event: Event){
 
 function bestRating(event: Event){
     event.preventDefault();
+    movieContainer!.innerHTML = "";
     const sortedArrayDown = copiedArray.sort((a, b) => {
-        const yearA = parseInt(a[5]);
-        const yearB = parseInt(b[5]);
+        const yearA = Number(a[5]);
+        const yearB = Number(b[5]);
         return yearB - yearA;
     })
     printMovies(sortedArrayDown);
